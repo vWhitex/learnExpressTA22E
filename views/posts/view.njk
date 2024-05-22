@@ -1,0 +1,27 @@
+{% extends "partials/layout.njk" %} {% block title %}View post{% endblock %} {%
+block content %}
+<table class="table-striped table table-hover mt-2">
+  <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ post.id }}</td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td>{{ post.title }}</td>
+    </tr>
+    <tr>
+      <th>Body</th>
+      <td>{{ post.body }}</td>
+    </tr>
+    <tr>
+      <th>Created At</th>
+      <td>{{ post.createdAt }}</td>
+    </tr>
+    <tr>
+      <th>Updated At</th>
+      <td>{{ post.updatedAt }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

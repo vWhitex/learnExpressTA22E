@@ -1,0 +1,34 @@
+{% extends "partials/layout.njk" %}
+{% block title %}Posts{% endblock %}
+{% block content %}
+    <a href="/posts/create" class="btn btn-primary mt-2">Create Post</a>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{post.id}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.createdAt}}</td>
+                    <td>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="/posts/{{post.id}}" class="btn btn-primary">View</a>
+                        <a href="/posts/{{post.id}}/edit" class="btn btn-warning">Edit</a>
+                        <form action="/posts/{{post.id}}/delete" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "partials/pagination.njk" %}
+{% endblock %}
